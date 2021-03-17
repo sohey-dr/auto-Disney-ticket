@@ -1,7 +1,10 @@
 const puppeteer = require('puppeteer');
 
 (async () => {
-  const browser = await puppeteer.launch();
+  const options = {
+    headless: false
+  };
+  const browser = await puppeteer.launch(options);
   const page = await browser.newPage();
   await page.goto('https://reserve.tokyodisneyresort.jp/');
   const xpath = '//*[@id="contents"]/h3';
