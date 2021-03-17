@@ -1,4 +1,4 @@
-const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer-core');
 
 (async () => {
   const options = {
@@ -9,7 +9,7 @@ const puppeteer = require('puppeteer');
   await page.goto('https://reserve.tokyodisneyresort.jp/');
   const xpath = '//*[@id="contents"]/h3';
   const elems = await page.$x(xpath);
-  const jsHandle = await elems[0].getProperty('textContent'));
+  const jsHandle = await elems[0].getProperty('textContent');
   const text = await jsHandle.jsonValue();
   if (text != "Thank you for visiting Tokyo Disney Resort Online Reservations & Tickets."){
     await page.reload({ waitUntil: ["networkidle0", "domcontentloaded"] });
