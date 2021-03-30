@@ -13,7 +13,7 @@ const puppeteer = require('puppeteer');
   const jsHandle = await elems[0].getProperty('textContent');
   const text = await jsHandle.jsonValue();
   if (text == "Thank you for visiting Tokyo Disney Resort Online Reservations & Tickets."){
-    await wait(1);
+    await wait(1000);
     console.log("リロードします");
     await page.reload({ waitUntil: ["networkidle0", "domcontentloaded"] });
   };
