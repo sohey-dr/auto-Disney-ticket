@@ -18,5 +18,5 @@ const puppeteer = require('puppeteer');
     await page.reload({ waitUntil: ["networkidle0", "domcontentloaded"] });
   };
 
-  // await browser.close();
+  await browser.close();
 })();
