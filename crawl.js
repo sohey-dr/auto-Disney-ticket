@@ -15,9 +15,7 @@ async function sleep(delay) {
   for(i = 1 ; ;i++ ) {
     const xpath = '//*[@id="contents"]/div/p[1]/text()[1]';
     const elems = await page.$x(xpath);
-    const jsHandle = await elems[0].getProperty('textContent');
-    const text = await jsHandle.jsonValue();
-    if (text != "ただいまアクセスが集中しており、サイトにつながりにくい状態となっています。"){
+    if (elems === null){
       console.log("抜ける！");
       break
     };
