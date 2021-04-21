@@ -12,7 +12,7 @@ async function sleep(delay) {
   const browser = await puppeteer.launch(options);
   const page = await browser.newPage();
   await page.goto('https://reserve.tokyodisneyresort.jp/');
-  for(i = 0 ; ;i++ ) {
+  for(i = 1 ; ;i++ ) {
     const xpath = '//*[@id="contents"]/h3';
     const elems = await page.$x(xpath);
     const jsHandle = await elems[0].getProperty('textContent');
@@ -22,7 +22,7 @@ async function sleep(delay) {
       break
     };
     await page.reload({ waitUntil: ["networkidle0", "domcontentloaded"] });
-    await sleep(1000);
+    await sleep(600);
     console.log(i + "回目のリロードします");
 }
 
