@@ -13,11 +13,11 @@ async function sleep(delay) {
   const page = await browser.newPage();
   await page.goto('https://reserve.tokyodisneyresort.jp/');
   for(i = 1 ; ;i++ ) {
-    const xpath = '//*[@id="contents"]/h3';
+    const xpath = '//*[@id="contents"]/div/p[1]/text()[1]';
     const elems = await page.$x(xpath);
     const jsHandle = await elems[0].getProperty('textContent');
     const text = await jsHandle.jsonValue();
-    if (text != "Thank you for visiting Tokyo Disney Resort Online Reservations & Tickets."){
+    if (text != "ただいまアクセスが集中しており、サイトにつながりにくい状態となっています。"){
       console.log("抜ける！");
       break
     };
