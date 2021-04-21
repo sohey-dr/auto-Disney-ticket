@@ -19,8 +19,10 @@ async function sleep(delay) {
     const text = await jsHandle.jsonValue();
     if (text != "Thank you for visiting Tokyo Disney Resort Online Reservations & Tickets."){
       console.log("抜ける！");
+      break
     };
-    await sleep(2000);
+    await page.reload({ waitUntil: ["networkidle0", "domcontentloaded"] });
+    await sleep(1000);
     console.log("リロードします");
 }
 
