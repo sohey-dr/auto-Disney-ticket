@@ -2,5 +2,8 @@
   "dependencies": {
     "puppeteer": "^8.0.0",
     "puppeteer-core": "^8.0.0"
+  },
+  "devDependencies": {
+    "ts-node": "^10.3.0"
   }
 }
